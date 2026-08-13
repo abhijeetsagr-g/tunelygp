@@ -1,0 +1,71 @@
+/* ============================================================
+   variables.css — Design tokens
+   ------------------------------------------------------------
+   Light theme is the default (on :root). Dark theme overrides
+   the same tokens via [data-theme="dark"] on <html>, which
+   js/theme-toggle.js toggles.
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-surface: #f6f6f8;
+  --color-surface-hover: #ececef;
+
+  /* Text */
+  --color-text: #1a1a1f;
+  --color-text-muted: #6b6b74;
+
+  /* Lines & accents */
+  --color-border: #e6e6ea;
+  --color-accent: #1a1a1f;
+  --color-accent-text: #ffffff;
+
+  /* Effects */
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-card-lg: 0 16px 40px rgba(0, 0, 0, 0.1);
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Layout */
+  --container-max: 1080px;
+  --space-section: clamp(4rem, 10vw, 7rem);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --color-bg: #131316;
+  --color-surface: #1d1d22;
+  --color-surface-hover: #26262c;
+
+  /* Text */
+  --color-text: #f2f2f4;
+  --color-text-muted: #9a9aa4;
+
+  /* Lines & accents */
+  --color-border: #2c2c33;
+  --color-accent: #ffffff;
+  --color-accent-text: #131316;
+
+  /* Effects */
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-card-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+}

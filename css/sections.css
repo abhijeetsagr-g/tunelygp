@@ -1,0 +1,295 @@
+/* ============================================================
+   sections.css — Styles for each page region
+   ------------------------------------------------------------
+   1. Top bar & theme toggle
+   2. Home showcase (screenshot + list + Download)
+   3. Library row
+   4. Playback row
+   5. Album & Playlist
+   6. Theming demo
+   7. Footer
+   ============================================================ */
+
+
+/* ---------- 1. Top bar & theme toggle ------------------------ */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.topbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.topbar__logo {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+}
+
+/* Switch-style toggle (sun left / moon right, thumb slides) */
+
+.theme-toggle {
+  position: relative;
+  width: 54px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-text-muted);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.theme-toggle__icon--sun  { left: 7px; }
+.theme-toggle__icon--moon { right: 7px; }
+
+.theme-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle__thumb {
+  transform: translateX(24px);
+}
+
+
+/* ---------- 2. Home showcase --------------------------------- */
+
+.showcase__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.showcase__media {
+  display: flex;
+  justify-content: center;
+}
+
+.showcase__screenshot {
+  height: 720px;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card-lg);
+}
+
+.showcase__list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.showcase__item::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.75rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  vertical-align: middle;
+}
+
+.showcase__item {
+  font-size: var(--font-size-lg);
+  font-weight: 550;
+}
+
+/* Download button below the showcase content */
+
+.showcase__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.5rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent-text);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-lg);
+}
+
+.download-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+
+/* ---------- 3. & 4. Screenshot rows (library / playback) ----- */
+
+.screenshot-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.screenshot-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.screenshot-card__img {
+  height: 340px;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Larger two-up variant used by the album & playlist section */
+.screenshot-card__img--lg {
+  height: 460px;
+}
+
+.screenshot-card__caption {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+
+/* ---------- 6. Theming demo ---------------------------------- */
+
+.theming__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.theming__gif {
+  width: auto;
+  max-width: 100%;
+  height: 520px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.theming__caption {
+  color: var(--color-text-muted);
+}
+
+
+/* ---------- 7. Footer ---------------------------------------- */
+
+.footer {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer__link:hover {
+  color: var(--color-text);
+}
+
+
+/* ---------- Responsive --------------------------------------- */
+
+@media (max-width: 720px) {
+  .showcase__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .showcase__screenshot {
+    height: 520px;
+  }
+
+  .screenshot-card__img {
+    height: 300px;
+  }
+
+  .screenshot-card__img--lg {
+    height: 380px;
+  }
+
+  .theming__gif {
+    height: 480px;
+  }
+}

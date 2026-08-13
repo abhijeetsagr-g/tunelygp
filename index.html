@@ -3,211 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tunely — a fast, offline-first music player for your own library. No internet. No ads. No tracking. Just your music.">
-  <title>Tunely — Your music. Offline. Yours.</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%238b5cf6'/%3E%3Cpath d='M13 9.5v11a3.25 3.25 0 1 1-1.5-2.73V8.7L21 6.5v10.7a3.25 3.25 0 1 1-1.5-2.72V8.17z' fill='%23fff'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Tunely — Offline music player</title>
+  <meta name="description" content="Tunely, an offline-first Flutter music player.">
+
+  <link rel="icon" type="image/png" href="screenshots/icon.png">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <!-- Loaded before first paint so the theme never flashes -->
+  <script src="js/theme-toggle.js"></script>
 </head>
 <body>
 
-  <!-- header -->
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="logo" href="#top">
-        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="9" fill="#8b5cf6"/>
-          <path d="M13 9.5v11a3.25 3.25 0 1 1-1.5-2.73V8.7L21 6.5v10.7a3.25 3.25 0 1 1-1.5-2.72V8.17z" fill="#fff"/>
-        </svg>
-        Tunely
+  <!-- ============================================================
+       Top bar — brand (left) + theme toggle (right)
+       ============================================================ -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="topbar__brand" href="#home-showcase">
+        <img class="topbar__logo" src="screenshots/icon.png" alt="" width="32" height="32">
+        <span>Tunely</span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#screenshots">Screenshots</a>
-        <a href="#download">Download</a>
-        <a class="nav-github" href="https://github.com/yourname/tunely" target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56v-2.17c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
-          GitHub
-        </a>
-      </nav>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        role="switch"
+        aria-checked="false"
+        aria-label="Toggle dark mode"
+      >
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        </span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+        <span class="theme-toggle__thumb" aria-hidden="true"></span>
+      </button>
     </div>
   </header>
 
-  <!-- hero -->
-  <section id="top" class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>Your music.<br>Offline. Yours.</h1>
-        <p class="lead">Tunely is a local, offline-first music player for your own library. No internet, no ads, no tracking — just a fast, beautiful way to play the music you already own.</p>
-        <p class="hero-meta">100% offline&nbsp;&nbsp;·&nbsp;&nbsp;No ads or tracking&nbsp;&nbsp;·&nbsp;&nbsp;Blazing fast</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#download">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-            Download
-          </a>
-          <a class="btn btn-ghost" href="https://github.com/yourname/tunely" target="_blank" rel="noopener">View on GitHub</a>
-        </div>
+  <main>
+
+    <!-- ============================================================
+         Section 1 — Home showcase: screenshot + feature list
+         ============================================================ -->
+    <section class="section" id="home-showcase">
+      <div class="container showcase__grid">
+        <figure class="showcase__media">
+          <img
+            class="showcase__screenshot"
+            src="screenshots/home_light.png"
+            data-light="screenshots/home_light.png"
+            data-dark="screenshots/home_dark.png"
+            alt="Tunely home screen showing Top Songs, Daily Mix, Album Recommendation, and Recently Played"
+           
+            loading="lazy"
+          >
+        </figure>
+
+        <ul class="showcase__list">
+          <li class="showcase__item">Top Songs</li>
+          <li class="showcase__item">Daily Mix</li>
+          <li class="showcase__item">Album Recommendation</li>
+          <li class="showcase__item">Recently Played</li>
+        </ul>
       </div>
 
-      <div class="hero-phone">
-        <figure class="phone-frame">
-          <div class="phone-screen">
-            <img src="screenshots/player.png" alt="Tunely Now Playing screen" width="1080" height="2460">
-          </div>
-          <figcaption class="phone-caption">Now Playing</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- features -->
-  <section id="features">
-    <div class="wrap">
-      <div class="features-head">
-        <span class="overline">Features</span>
-        <h2>Everything you need.<br>Nothing you don't.</h2>
-        <p class="lead">Tunely is built around one idea: your music belongs on your device, and playing it should feel instant.</p>
-      </div>
-      <div class="features-grid">
-        <article class="feature">
-          <div class="icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 16.5a5 5 0 1 1 7 0"/><path d="M5.5 19.5a8.5 8.5 0 1 1 13 0"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="16" x2="16" y2="16"/></svg>
-          </div>
-          <h3>Offline playback</h3>
-          <p>Plays straight from your device — no internet, no streaming, no interruptions.</p>
-        </article>
-        <article class="feature">
-          <div class="icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-          <h3>No ads. No tracking.</h3>
-          <p>Privacy-respecting by design. Your listening habits never leave your phone.</p>
-        </article>
-        <article class="feature">
-          <div class="icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h3>Fast &amp; lightweight</h3>
-          <p>A native Flutter app that launches instantly and sips battery on any device.</p>
-        </article>
-        <article class="feature">
-          <div class="icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-          </div>
-          <h3>Clean, BLoC-driven UI</h3>
-          <p>State management built on the BLoC pattern — predictable, testable, buttery smooth.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- screenshots -->
-  <section id="screenshots">
-    <div class="wrap">
-      <div class="shots-head">
-        <div>
-          <span class="overline">Screenshots</span>
-          <h2>A player that feels right.</h2>
-        </div>
-        <button class="theme-toggle" id="themeToggle" data-theme="light" aria-pressed="false" type="button">
-          <span class="dot-switch" aria-hidden="true"></span>
-          <span id="themeLabel">Light</span>
-        </button>
-      </div>
-      <div class="shots-grid">
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/home.png" data-dark="screenshots/home_dark.png" src="screenshots/home.png" alt="Tunely Home screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Home</b>Your music, front and center</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/player.png" data-dark="screenshots/player_dark.png" src="screenshots/player.png" alt="Tunely Now Playing screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Now Playing</b>Immersive, full-screen player</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/album.png" data-dark="screenshots/album_dark.png" src="screenshots/album.png" alt="Tunely Album view" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Album</b>Browse releases, track by track</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/search.png" data-dark="screenshots/search_dark.png" src="screenshots/search.png" alt="Tunely Search screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Search</b>Find anything instantly</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/lyrics.png" data-dark="screenshots/lyrics_dark.png" src="screenshots/lyrics.png" alt="Tunely Lyrics screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Lyrics</b>Sing along — offline</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/queue.png" data-dark="screenshots/queue_dark.png" src="screenshots/queue.png" alt="Tunely Queue screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Queue</b>What's next is your call</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/library.png" data-dark="screenshots/library_dark.png" src="screenshots/library.png" alt="Tunely Library screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Library</b>Organize your whole collection</figcaption>
-          </div>
-        </figure>
-        <figure class="phone">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img data-light="screenshots/settings.png" data-dark="screenshots/settings_dark.png" src="screenshots/settings.png" alt="Tunely Settings screen" loading="lazy" width="1080" height="2460">
-            </div>
-            <figcaption class="phone-caption"><b>Settings</b>Themes &amp; playback, your way</figcaption>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- download -->
-  <section id="download">
-    <div class="wrap">
-      <span class="overline">Get Tunely</span>
-      <h2>Own your music.<br>Take it with you.</h2>
-      <p class="lead">Free, ad-free, and offline-first. Download Tunely and play your library — wherever you are.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          Download Tunely
+      <div class="showcase__cta">
+        <a class="download-btn" href="https://release-assets.githubusercontent.com/github-production-release-asset/1172926139/e3b8b318-1f48-4480-aae3-3446a6c64dce?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-13T15%3A43%3A00Z&rscd=attachment%3B+filename%3Dtunely.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-13T14%3A42%3A18Z&ske=2026-08-13T15%3A43%3A00Z&sks=b&skv=2018-11-09&sig=%2BLPkR0rVU%2Fk3sXwSb7DevJXAWm8pq6W9Mg8ZVt0wqrA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjYzNDI2MywibmJmIjoxNzg2NjMyNDYzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.JZ19_PU3fx9cBc5L_F2W1X_5hefXbpPPImTEtBKiiWQ&response-content-disposition=attachment%3B%20filename%3Dtunely.apk&response-content-type=application%2Fvnd.android.package-archive">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download
         </a>
-        <a class="btn btn-ghost" href="https://github.com/yourname/tunely" target="_blank" rel="noopener">View on GitHub</a>
       </div>
-      <p class="github-link">
-        <a href="https://github.com/yourname/tunely" target="_blank" rel="noopener">Open source · fluttershine/tunely</a>
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    Tunely · Your music. Offline. Yours.
+    <!-- ============================================================
+         Section 3 — Library row: Songs / Albums / Artists / Playlists
+         Add new tabs here; copy one .screenshot-card block.
+         ============================================================ -->
+    <section class="section" id="library">
+      <div class="container screenshot-row">
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/library_song_light.png"
+               data-light="screenshots/library_song_light.png"
+               data-dark="screenshots/library_song_dark.png"
+               alt="Songs tab" loading="lazy">
+          <figcaption class="screenshot-card__caption">Songs</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/library_album_light.png"
+               data-light="screenshots/library_album_light.png"
+               data-dark="screenshots/library_album_dark.png"
+               alt="Albums tab" loading="lazy">
+          <figcaption class="screenshot-card__caption">Albums</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/library_artist_light.png"
+               data-light="screenshots/library_artist_light.png"
+               data-dark="screenshots/library_artist_dark.png"
+               alt="Artists tab" loading="lazy">
+          <figcaption class="screenshot-card__caption">Artists</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/library_playlist_light.png"
+               data-light="screenshots/library_playlist_light.png"
+               data-dark="screenshots/library_playlist_dark.png"
+               alt="Playlists tab" loading="lazy">
+          <figcaption class="screenshot-card__caption">Playlists</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 4 — Playback row: Queue / Player / Lyrics
+         ============================================================ -->
+    <section class="section" id="playback">
+      <div class="container screenshot-row">
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/queue_light.png"
+               data-light="screenshots/queue_light.png"
+               data-dark="screenshots/queue_dark.png"
+               alt="Playback queue" loading="lazy">
+          <figcaption class="screenshot-card__caption">Queue</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/player_light.png"
+               data-light="screenshots/player_light.png"
+               data-dark="screenshots/player_dark.png"
+               alt="Now playing player" loading="lazy">
+          <figcaption class="screenshot-card__caption">Player</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img"
+               src="screenshots/lyrics_light.png"
+               data-light="screenshots/lyrics_light.png"
+               data-dark="screenshots/lyrics_dark.png"
+               alt="Synced lyrics view" loading="lazy">
+          <figcaption class="screenshot-card__caption">Lyrics</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 5 — Album & Playlist detail views
+         ============================================================ -->
+    <section class="section" id="album-playlist">
+      <div class="container screenshot-row">
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img screenshot-card__img--lg"
+               src="screenshots/album_light.png"
+               data-light="screenshots/album_light.png"
+               data-dark="screenshots/album_dark.png"
+               alt="Album detail view" loading="lazy">
+          <figcaption class="screenshot-card__caption">Album</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <img class="screenshot-card__img screenshot-card__img--lg"
+               src="screenshots/playlist_light.png"
+               data-light="screenshots/playlist_light.png"
+               data-dark="screenshots/playlist_dark.png"
+               alt="Playlist detail view" loading="lazy">
+          <figcaption class="screenshot-card__caption">Playlist</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 6 — Theming demo: animated settings GIF
+         ============================================================ -->
+    <section class="section theming" id="theming">
+      <div class="container theming__inner">
+        <img class="theming__gif"
+             src="screenshots/settings.gif"
+             alt="Animated preview of Tunely's theme settings" loading="lazy">
+        <p class="theming__caption">Customize your theme</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       Footer — GitHub link
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="footer__link" href="https://github.com/abhijeetsagr-g/tunely">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        GitHub
+      </a>
+    </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
