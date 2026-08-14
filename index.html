@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/reveal.css">
 
   <!-- Loaded before first paint so the theme never flashes -->
   <script src="js/theme-toggle.js"></script>
@@ -60,7 +61,7 @@
          ============================================================ -->
     <section class="section" id="home-showcase">
       <div class="container showcase__grid">
-        <figure class="showcase__media">
+        <figure class="showcase__media" data-reveal>
           <img
             class="showcase__screenshot"
             src="screenshots/home_light.png"
@@ -72,7 +73,7 @@
           >
         </figure>
 
-        <ul class="showcase__list">
+        <ul class="showcase__list" data-reveal data-reveal-delay="100">
           <li class="showcase__item">Top Songs</li>
           <li class="showcase__item">Daily Mix</li>
           <li class="showcase__item">Album Recommendation</li>
@@ -80,7 +81,7 @@
         </ul>
       </div>
 
-      <div class="showcase__cta">
+      <div class="showcase__cta" data-reveal data-reveal-delay="200">
         <a class="download-btn" href="https://release-assets.githubusercontent.com/github-production-release-asset/1172926139/e3b8b318-1f48-4480-aae3-3446a6c64dce?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-13T15%3A43%3A00Z&rscd=attachment%3B+filename%3Dtunely.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-13T14%3A42%3A18Z&ske=2026-08-13T15%3A43%3A00Z&sks=b&skv=2018-11-09&sig=%2BLPkR0rVU%2Fk3sXwSb7DevJXAWm8pq6W9Mg8ZVt0wqrA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjYzNDI2MywibmJmIjoxNzg2NjMyNDYzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.JZ19_PU3fx9cBc5L_F2W1X_5hefXbpPPImTEtBKiiWQ&response-content-disposition=attachment%3B%20filename%3Dtunely.apk&response-content-type=application%2Fvnd.android.package-archive">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -99,7 +100,7 @@
          ============================================================ -->
     <section class="section" id="library">
       <div class="container screenshot-row">
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal>
           <img class="screenshot-card__img"
                src="screenshots/library_song_light.png"
                data-light="screenshots/library_song_light.png"
@@ -108,7 +109,7 @@
           <figcaption class="screenshot-card__caption">Songs</figcaption>
         </figure>
 
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal data-reveal-delay="100">
           <img class="screenshot-card__img"
                src="screenshots/library_album_light.png"
                data-light="screenshots/library_album_light.png"
@@ -117,7 +118,7 @@
           <figcaption class="screenshot-card__caption">Albums</figcaption>
         </figure>
 
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal data-reveal-delay="200">
           <img class="screenshot-card__img"
                src="screenshots/library_artist_light.png"
                data-light="screenshots/library_artist_light.png"
@@ -126,7 +127,7 @@
           <figcaption class="screenshot-card__caption">Artists</figcaption>
         </figure>
 
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal data-reveal-delay="300">
           <img class="screenshot-card__img"
                src="screenshots/library_playlist_light.png"
                data-light="screenshots/library_playlist_light.png"
@@ -142,7 +143,7 @@
          ============================================================ -->
     <section class="section" id="playback">
       <div class="container screenshot-row">
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal>
           <img class="screenshot-card__img"
                src="screenshots/queue_light.png"
                data-light="screenshots/queue_light.png"
@@ -151,7 +152,7 @@
           <figcaption class="screenshot-card__caption">Queue</figcaption>
         </figure>
 
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal data-reveal-delay="100">
           <img class="screenshot-card__img"
                src="screenshots/player_light.png"
                data-light="screenshots/player_light.png"
@@ -160,7 +161,7 @@
           <figcaption class="screenshot-card__caption">Player</figcaption>
         </figure>
 
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal data-reveal-delay="200">
           <img class="screenshot-card__img"
                src="screenshots/lyrics_light.png"
                data-light="screenshots/lyrics_light.png"
@@ -176,7 +177,7 @@
          ============================================================ -->
     <section class="section" id="album-playlist">
       <div class="container screenshot-row">
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal>
           <img class="screenshot-card__img screenshot-card__img--lg"
                src="screenshots/album_light.png"
                data-light="screenshots/album_light.png"
@@ -185,7 +186,7 @@
           <figcaption class="screenshot-card__caption">Album</figcaption>
         </figure>
 
-        <figure class="screenshot-card">
+        <figure class="screenshot-card" data-reveal data-reveal-delay="100">
           <img class="screenshot-card__img screenshot-card__img--lg"
                src="screenshots/playlist_light.png"
                data-light="screenshots/playlist_light.png"
@@ -201,10 +202,10 @@
          ============================================================ -->
     <section class="section theming" id="theming">
       <div class="container theming__inner">
-        <img class="theming__gif"
+        <img class="theming__gif" data-reveal
              src="screenshots/settings.gif"
              alt="Animated preview of Tunely's theme settings" loading="lazy">
-        <p class="theming__caption">Customize your theme</p>
+        <p class="theming__caption" data-reveal data-reveal-delay="100">Customize your theme</p>
       </div>
     </section>
 
@@ -219,6 +220,8 @@
       <a class="footer__link" href="credits.html">Credits</a>
     </div>
   </footer>
+
+  <script src="js/reveal.js" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+/* ============================================================
+   reveal.css — Scroll-triggered reveal animations
+   ------------------------------------------------------------
+   Paired with js/reveal.js. Elements with [data-reveal] fade
+   and slide in once they enter the viewport. Reduced-motion
+   users are handled by the global override in base.css.
+   ============================================================ */
+
+[data-reveal] {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+[data-reveal].reveal--hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+[data-reveal].reveal--visible {
+  opacity: 1;
+  transform: none;
+}
