@@ -8,6 +8,7 @@
    5. Album & Playlist
    6. Theming demo
    7. Footer
+   8. & 9. Prose pages (Privacy / Credits)
    ============================================================ */
 
 
@@ -252,6 +253,7 @@
 .footer__inner {
   display: flex;
   justify-content: center;
+  gap: var(--space-3);
 }
 
 .footer__link {
@@ -266,6 +268,75 @@
 
 .footer__link:hover {
   color: var(--color-text);
+}
+
+
+/* ---------- 8. & 9. Prose pages (Privacy / Credits) ---------- */
+
+.privacy,
+.credits {
+  max-width: 720px;
+  margin-inline: auto;
+  padding-block: var(--space-section);
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.privacy h1,
+.credits h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-1);
+}
+
+.privacy__effective-date {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.privacy h2,
+.credits h2 {
+  font-size: 1.375rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.privacy h3,
+.credits h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+.privacy p,
+.credits p {
+  margin-bottom: var(--space-2);
+}
+
+.privacy ul,
+.credits ul {
+  margin-bottom: var(--space-2);
+  padding-left: 1.25rem;
+}
+
+.privacy li,
+.credits li {
+  margin-bottom: var(--space-1);
+}
+
+.privacy a,
+.credits a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy a:hover,
+.credits a:hover {
+  text-decoration-thickness: 2px;
 }
 
 
